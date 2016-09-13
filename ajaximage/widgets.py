@@ -60,12 +60,12 @@ class AjaxImageWidget(widgets.TextInput):
 			except AttributeError:
 				self.upload_to = self.upload_to(None, file_name)
 		
-		kwargs = {'upload_to': self.upload_to,
-							'max_width': self.max_width,
-							'max_height': self.max_height,
-							'crop': self.crop}
+	kwargs = {'upload_to': self.upload_to,
+		'max_width': self.max_width,
+		'max_height': self.max_height,
+		'crop': self.crop}
 		
-		upload_url = reverse('ajaximage', kwargs=kwargs)
+	upload_url = reverse('ajaximage', kwargs=kwargs)
 
         output = self.html.format(upload_url=upload_url,
                              file_url=file_url,
