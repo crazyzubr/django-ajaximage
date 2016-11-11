@@ -29,7 +29,7 @@ def ajaximage(request, upload_to=None, max_width=None, max_height=None, crop=Non
         file_ = form.cleaned_data['file']
 
         if file_.content_type not in ALLOW_IMAGE_TYPES:
-            data = json.dumps({'error': BAD_IMAGE_TYPE_ERROR})
+            data = json.dumps({'error': str(BAD_IMAGE_TYPE_ERROR)})
             return HttpResponse(data, content_type='application/json', status=403)
         file_ = resize(file_, max_width, max_height, crop)
         file_name, extension = os.path.splitext(file_.name)
